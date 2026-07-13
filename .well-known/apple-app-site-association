@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6B7ZBUP3WW.com.hirokitakezawa.linkshare",
+        "appIDs": ["6B7ZBUP3WW.com.hirokitakezawa.linkshare"],
+        "paths": ["/linkshare/invite", "/linkshare/invite/*"]
+      }
+    ]
+  }
+}
