@@ -39,6 +39,14 @@
   .row-t em{display:block;font-style:normal;font-size:12.5px;color:var(--dim);line-height:1.45;margin-top:1px}
   .chev{color:var(--dim);font-size:20px;flex:none}
 
+  .inapp{display:none;background:#3a2a12;border:1px solid #6b4d1e;border-radius:14px;
+    padding:14px 16px;margin:0 0 18px;font-size:13.5px;line-height:1.65}
+  .inapp b{color:var(--sand);display:block;margin-bottom:4px;font-size:14px}
+  .inapp.on{display:block}
+  .searchname{margin-top:10px;padding:9px 12px;background:#241f19;border-radius:9px;
+    font-size:13px;color:var(--ink);text-align:center}
+  .searchname span{color:var(--dim);font-size:11.5px;display:block}
+
   footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
   footer a{color:var(--sand)}
   footer p{margin:0 0 8px}
@@ -46,6 +54,13 @@
 </head>
 <body>
 <div class="wrap">
+
+  <div class="inapp" id="inapp">
+    <b>App Store が開けないときは</b>
+    TikTokのアプリ内ブラウザからは App Store を開けません。
+    右上の <b style="display:inline">…</b> から「ブラウザで開く」を選ぶと開けます。
+    <div class="searchname"><span>または App Store で検索</span>砂時計人生</div>
+  </div>
 
   <div class="hero">
     <img src="icons/hourglasslife.png" alt="砂時計人生">
@@ -93,5 +108,16 @@
   </footer>
 
 </div>
+
+<script>
+  // TikTok / Instagram などのアプリ内ブラウザは App Store への遷移を塞ぐ。
+  // 該当するときだけ逃げ道を出す（通常のSafariでは邪魔なので出さない）。
+  (function () {
+    var ua = navigator.userAgent || "";
+    if (/BytedanceWebview|musical_ly|aweme|TikTok|Instagram|FBAN|FBAV|Line\//i.test(ua)) {
+      document.getElementById("inapp").classList.add("on");
+    }
+  })();
+</script>
 </body>
 </html>
